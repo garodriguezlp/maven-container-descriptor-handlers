@@ -55,9 +55,11 @@ public class AssemblyDescriptorHandler implements ContainerDescriptorHandler {
 
     @Override
     public boolean isSelected(FileInfo fileInfo) throws IOException {
-        byte[] contents = IOUtils.toByteArray(fileInfo.getContents());
-        String sha256 = DigestUtils.sha256Hex(contents);
-        entries.add(new AssemblyEntry(fileInfo.getName(), contents.length, sha256));
+        if (!fileInfo.isDirectory()){
+            byte[] contents = IOUtils.toByteArray(fileInfo.getContents());
+            String sha256 = DigestUtils.sha256Hex(contents);
+            entries.add(new AssemblyEntry(fileInfo.getName(), contents.length, sha256));
+        }
         return true;
     }
 

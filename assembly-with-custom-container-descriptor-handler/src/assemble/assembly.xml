@@ -7,18 +7,8 @@
     </formats>
     <containerDescriptorHandlers>
         <containerDescriptorHandler>
-            <handlerName>file-aggregator</handlerName>
-            <configuration>
-                <filePattern>.*.txt</filePattern>
-                <outputPath>file.txt</outputPath>
-            </configuration>
+            <handlerName>assembly-descriptor</handlerName>
         </containerDescriptorHandler>
-<!--        <containerDescriptorHandler>-->
-<!--            <handlerName>custom</handlerName>-->
-<!--            <configuration>-->
-<!--                <comment>A comment</comment>-->
-<!--            </configuration>-->
-<!--        </containerDescriptorHandler>-->
     </containerDescriptorHandlers>
     <fileSets>
         <fileSet>
