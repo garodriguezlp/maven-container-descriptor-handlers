@@ -7,11 +7,18 @@
     </formats>
     <containerDescriptorHandlers>
         <containerDescriptorHandler>
-            <handlerName>custom</handlerName>
+            <handlerName>file-aggregator</handlerName>
             <configuration>
-                <comment>A comment</comment>
+                <filePattern>.*.txt</filePattern>
+                <outputPath>file.txt</outputPath>
             </configuration>
         </containerDescriptorHandler>
+<!--        <containerDescriptorHandler>-->
+<!--            <handlerName>custom</handlerName>-->
+<!--            <configuration>-->
+<!--                <comment>A comment</comment>-->
+<!--            </configuration>-->
+<!--        </containerDescriptorHandler>-->
     </containerDescriptorHandlers>
     <fileSets>
         <fileSet>
