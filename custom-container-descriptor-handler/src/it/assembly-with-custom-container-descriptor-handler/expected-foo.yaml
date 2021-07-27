@@ -1,0 +1,12 @@
+- name: "assembly-with-custom-container-descriptor-handler-1.0-SNAPSHOT/baz.txt"
+  size-in-bytes: 4
+  sha256: "bf07a7fbb825fc0aae7bf4a1177b2b31fcf8a3feeaf7092761e18c859ee52a9c"
+- name: "assembly-with-custom-container-descriptor-handler-1.0-SNAPSHOT/test.properties"
+  size-in-bytes: 11
+  sha256: "e078d9f3cd9f57c8ded3e82cc9061c25ab551e7a4c872ffd22fbd6eb6e5d8e93"
+- name: "assembly-with-custom-container-descriptor-handler-1.0-SNAPSHOT/test.xml"
+  size-in-bytes: 53
+  sha256: "b9556242f4f862bad07828855e4be8012634269d951c45bc3b15e967c59cbce8"
+- name: "assembly-with-custom-container-descriptor-handler-1.0-SNAPSHOT/foo.txt"
+  size-in-bytes: 4
+  sha256: "b5bb9d8014a0f9b1d61e21e796d78dccdf1352f23cd32812f4850b878ae4944c"

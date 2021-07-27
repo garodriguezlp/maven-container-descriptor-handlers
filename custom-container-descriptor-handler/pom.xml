@@ -50,6 +50,53 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>0.8.7</version>
+                <configuration>
+                    <skip>${skipTests}</skip>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-invoker-plugin</artifactId>
+                <version>3.2.2</version>
+                <configuration>
+                    <debug>true</debug>
+                    <addTestClassPath>true</addTestClassPath>
+                    <cloneProjectsTo>${project.build.directory}/it</cloneProjectsTo>
+                    <postBuildHookScript>verify</postBuildHookScript>
+                    <writeJunitReport>true</writeJunitReport>
+                    <junitPackageName>${project.groupId}.invoker.it</junitPackageName>
+                    <!-- For executing with JaCoCo agent -->
+                    <mavenOpts>${argLine}</mavenOpts>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>integration-test</id>
+                        <goals>
+                            <goal>install</goal>
+                            <goal>run</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.codehaus.groovy</groupId>
+                        <artifactId>groovy-all</artifactId>
+                        <version>3.0.8</version>
+                        <type>pom</type>
+                    </dependency>
+                </dependencies>
+            </plugin>
         </plugins>
     </build>
 </project>

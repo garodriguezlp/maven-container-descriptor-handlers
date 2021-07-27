@@ -42,6 +42,8 @@ public class AssemblyDescriptorHandler implements ContainerDescriptorHandler {
 
     private List<AssemblyEntry> entries = new ArrayList<>();
 
+    private String projectVersion;
+
     @Override
     public void finalizeArchiveCreation(Archiver archiver) throws ArchiverException {
         archiver.getResources().forEachRemaining(a -> {
@@ -67,7 +69,7 @@ public class AssemblyDescriptorHandler implements ContainerDescriptorHandler {
 
     private String buildDescriptorDestPath(String someAssemblyEntry) {
         String assemblyRootDir = someAssemblyEntry.substring(0, someAssemblyEntry.indexOf('/'));
-        String jarDescriptorFinalName = assemblyRootDir + ".jar";
+        String jarDescriptorFinalName = "assembly-descriptor-" + projectVersion + ".jar";
         return String.join("/", assemblyRootDir, DESCRIPTOR_LOCATION, jarDescriptorFinalName);
     }
 
@@ -88,6 +90,10 @@ public class AssemblyDescriptorHandler implements ContainerDescriptorHandler {
             entries.add(new AssemblyEntry(fileInfo.getName(), contents.length, sha256));
         }
         return true;
+    }
+
+    public void setProjectVersion(String projectVersion) {
+        this.projectVersion = projectVersion;
     }
 
     private File createYamlDescriptor(List<AssemblyEntry> assemblyEntries) throws IOException {
